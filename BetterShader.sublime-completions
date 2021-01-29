@@ -1,0 +1,11 @@
+{
+        "scope": "source.surfshader",
+        "completions":
+        [
+                { "trigger": "BEGIN_PROPERTIES", "contents": "BEGIN_PROPERTIES\n$0\END_PROPERTIES"}
+                { "trigger": "BEGIN_OPTIONS", "contents": "BEGIN_PROPERTIES\n$0\END_OPTIONS"}
+                { "trigger": "BEGIN_SUBSHADERS", "contents": "BEGIN_PROPERTIES\n$0\END_SUBSHADERS"}
+                { "trigger": "BEGIN_DEFINES", "contents": "BEGIN_PROPERTIES\n$0\END_DEFINES"}
+                { "trigger": "BEGIN_CODE", "contents": "BEGIN_PROPERTIES\n$0\END_CODE"}
+        ]
+}

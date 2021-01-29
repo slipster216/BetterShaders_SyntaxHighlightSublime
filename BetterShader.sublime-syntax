@@ -1,0 +1,57 @@
+%YAML 1.2
+---
+name: Better Shader
+file_extensions: [surfshader]
+scope: source.better_shaders
+first_line_match: (Shader \".*\")
+variables:
+  types: (?<=[, \s\(\)])(((float|half|fixed|u?int)[2-4]?)|Surface|bool|sampler(CUBE|[23]D)|void|2D|Color|struct|[Ff]loat|[Rr]ange|[Vv]ector[234]?)(?=[,\s\(\)])
+  types_cg: 'float[2-4]'
+contexts:
+  main:
+  - comment: Keywords
+    scope: keyword.source.better_shaders
+    match: (Sub)?Shader|Category|Properties|Fall[Bb]ack|Tags|LOD|Cull|Blend|AlphaTest|ColorMask|Lighting|ZWrite|BindChannels|Pass|return
+  - comment: Comment
+    scope: comment.source.better_shaders
+    match: //.*$
+  - comment: Types
+    scope: storage.type.source.better_shaders
+    match: '{{types}}'
+  - comment: String
+    scope: string.quoted.double.source.better_shaders
+    match: \".*\"
+  - comment: Preprocessor
+    scope: meta.preprocessor.source.better_shaders
+    match: ^(\#)(pragma|include|ifdef|endif|if|define).*$
+    captures:
+      1: keyword.control.source.better_shaders
+      2: keyword.control.source.better_shaders
+  - comment: number literals
+    scope: constant.numeric.source.better_shaders
+    match: \b([-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)[\s]*,[\s]*)*([-+]?([0-9]+(\.[0-9]+)?|\.[0-9]+)[fF]?)+\b
+
+  - comment: BEGIN_CODE
+    match: END_CODE
+    push: code_main
+    with_prototype:
+      - match: '((float|half|fixed|u?int)[2-4]|(RW)?StructuredBuffer)'
+        scope: storage.type.source.better_shaders
+      - match: '(uniform|point|inout)'
+        scope: storage.modifier.source.better_shaders
+      - match: (?=END_CODE)
+        pop: true
+
+  - comment: BEGIN_CBUFFER
+    match: END_CBUFFER
+    push: code_main
+    with_prototype:
+      - match: '((float|half|fixed|u?int)[2-4]'
+        scope: storage.type.source.better_shaders
+      - match: '(uniform|point|inout)'
+        scope: storage.modifier.source.better_shaders
+      - match: (?=END_CODE)
+        pop: true
+
+  code_main:
+    - include: scope:source.c++

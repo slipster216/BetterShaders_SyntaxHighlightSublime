@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+BEGIN_PROPERTIES 
+
+BEGIN_CBUFFER
+
+END_CBUFFER
+
+BEGIN_CODE
+$0
+END_CODE
+
+]]></content>
+	<tabTrigger>Shader</tabTrigger>
+	<scope>source.surfshader</scope>
+</snippet>
