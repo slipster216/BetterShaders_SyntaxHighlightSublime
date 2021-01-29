@@ -46,7 +46,7 @@ contexts:
     match: END_CBUFFER
     push: code_main
     with_prototype:
-      - match: '((float|half|fixed|u?int)[2-4]'
+      - match: '((float|half|fixed|u?int)[2-4])'
         scope: storage.type.source.better_shaders
       - match: (?=END_CBUFFER)
         pop: true
