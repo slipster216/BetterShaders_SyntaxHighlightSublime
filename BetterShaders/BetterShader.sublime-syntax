@@ -11,7 +11,7 @@ contexts:
   main:
   - comment: Keywords
     scope: keyword.source.better_shaders
-    match: return
+    match: return|BEGIN_CODE|END_CODE|BEGIN_PROPERTIES|END_PROPERTIES|BEGIN_DEFINES|END_DEFINES|BEGIN_CBUFFER|END_CBUFFER
   - comment: Comment
     scope: comment.source.better_shaders
     match: //.*$
