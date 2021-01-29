@@ -11,7 +11,7 @@ contexts:
   main:
   - comment: Keywords
     scope: keyword.source.better_shaders
-    match: (Sub)?Shader|Category|Properties|Fall[Bb]ack|Tags|LOD|Cull|Blend|AlphaTest|ColorMask|Lighting|ZWrite|BindChannels|Pass|return
+    match: return
   - comment: Comment
     scope: comment.source.better_shaders
     match: //.*$
@@ -48,9 +48,7 @@ contexts:
     with_prototype:
       - match: '((float|half|fixed|u?int)[2-4]'
         scope: storage.type.source.better_shaders
-      - match: '(uniform|point|inout)'
-        scope: storage.modifier.source.better_shaders
-      - match: (?=END_CODE)
+      - match: (?=END_CBUFFER)
         pop: true
 
   code_main:
