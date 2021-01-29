@@ -3,7 +3,7 @@
 name: Better Shader
 file_extensions: [surfshader]
 scope: source.better_shaders
-first_line_match: (Shader \".*\")
+first_line_match: (\".*\")
 variables:
   types: (?<=[, \s\(\)])(((float|half|fixed|u?int)[2-4]?)|Surface|bool|sampler(CUBE|[23]D)|void|2D|Color|struct|[Ff]loat|[Rr]ange|[Vv]ector[234]?)(?=[,\s\(\)])
   types_cg: 'float[2-4]'
