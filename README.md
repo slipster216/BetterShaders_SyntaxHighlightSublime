@@ -1,6 +1,6 @@
-## Better Shaders syntax for highlighting for Sublime 3
+## Better Shaders syntax for highlighting for Sublime 3 and Rider
 
-This repo provides support for the [Better Shaders] shader format for Unity in [Sublime Text Editor](https://www.sublimetext.com/)
+This repo provides support for the [Better Shaders] shader format for Unity in [Sublime Text Editor] as well as [Rider]
 
  ### Installation:
  #### Sublime Text:
